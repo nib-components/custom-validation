@@ -1,0 +1,18 @@
+{
+  "name": "custom-validation",
+  "repo": "nib-components/custom-validation",
+  "description": "Custom validation methods",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "nib-components/validation-methods": "*",
+    "component/type": "*",
+    "timrwood/moment": "develop"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "index.js"
+  ]
+}
