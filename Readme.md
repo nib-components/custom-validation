@@ -1,5 +1,7 @@
 # custom-validation
 
+[![Build Status](https://travis-ci.org/nib-components/custom-validation.png?branch=master)](https://travis-ci.org/nib-components/custom-validation)
+
   Custom validation methods
 
 ## Installation
