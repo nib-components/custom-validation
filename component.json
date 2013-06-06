@@ -9,7 +9,9 @@
     "component/type": "*",
     "timrwood/moment": "develop"
   },
-  "development": {},
+  "development": {
+    "chaijs/chai": "*"
+  },
   "license": "MIT",
   "main": "index.js",
   "scripts": [

@@ -50,11 +50,13 @@ exports.dateofbirth = function(val) {
  * @param {Number} age The age to be over
  * @return {Boolean}
  */
-exports.olderThan = function(val, age) {
-  if(val) {
-    var birthYear = moment(val, 'DD/MM/YYYY');
-    return moment().diff(birthYear, 'years', true) >= age;
-  }
+exports.olderThan = function(age) {
+  return function(val, data) {
+    if(age) {
+      var birthYear = moment(val, 'DD/MM/YYYY');
+      return moment().diff(birthYear, 'years', true) >= age;
+    }
+  };
 };
 
 /**
@@ -63,9 +65,11 @@ exports.olderThan = function(val, age) {
  * @param {Number} age The age to be over
  * @return {Boolean}
  */
-exports.youngerThan = function(val, age) {
-  if(val) {
-    var birthYear = moment(val, 'DD/MM/YYYY');
-    return moment().diff(birthYear, 'years', true) <= age;
-  }
+exports.youngerThan = function(age) {
+  return function(val, data) {
+    if(age) {
+      var birthYear = moment(val, 'DD/MM/YYYY');
+      return moment().diff(birthYear, 'years', true) <= age;
+    }
+  };
 };
