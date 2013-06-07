@@ -14,7 +14,8 @@ var moment = require('moment');
 
 var patterns = {
   dateofbirth: /^\d{1,2}\/\d{1,2}\/\d{4}$/,
-  alphabetic: /^([a-zA-Z\-\'])$/
+  alphabetic: /^([a-zA-Z\-\'])$/,
+  intlPhone: /[0-9\-\+ ]+/
 };
 
 /**
@@ -83,5 +84,11 @@ exports.youngerThan = function(age) {
 exports.alphabetic = function(val) {
   if(val) {
     return type(val) === 'string' && patterns.alphabetic.test(val);
+  }
+};
+
+exports.intlPhone = function(val) {
+  if(val) {
+    return type(val) === 'string' && patterns.intlPhone.test(val);
   }
 };
