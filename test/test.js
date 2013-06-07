@@ -47,6 +47,8 @@ describe('Custom Validation Methods', function(){
     methods.intlPhone('+61-555-555-555').should.be.true;
     methods.intlPhone('+61 555 555 555').should.be.true;
     methods.intlPhone('61 555 555 555').should.be.true;
+    methods.intlPhone('+61-555-eggplant').should.be.false;
+    methods.intlPhone('+eggplant-61-555').should.be.false;
     methods.intlPhone('string').should.be.false;
   });
 });
