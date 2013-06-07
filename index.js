@@ -74,3 +74,14 @@ exports.youngerThan = function(age) {
     }
   };
 };
+
+/**
+ * Check if a string is alphabetic (spaces and apostrophies included)
+ * @param  {String} val
+ * @return {Boolean}
+ */
+exports.alphabetic = function(val) {
+  if(val) {
+    return type(val) === 'string' && patterns.alphabetic.test(val);
+  }
+};
