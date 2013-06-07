@@ -48,8 +48,5 @@ describe('Custom Validation Methods', function(){
     methods.intlPhone('+61 555 555 555').should.be.true;
     methods.intlPhone('61 555 555 555').should.be.true;
     methods.intlPhone('string').should.be.false;
-    chai.assert( methods.intlPhone('') === undefined);
-    chai.assert( methods.intlPhone(null) === undefined);
-    chai.assert( methods.intlPhone(undefined) === undefined);
   });
 });
