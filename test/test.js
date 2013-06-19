@@ -51,4 +51,12 @@ describe('Custom Validation Methods', function(){
     methods.intlPhone('+eggplant-61-555').should.be.false;
     methods.intlPhone('string').should.be.false;
   });
+
+  it('should validate that an entry is alphabetic only', function(){
+    methods.alphabetic('Terry').should.be.true;
+    methods.alphabetic('1Terry').should.be.false;
+    methods.alphabetic('!Terry').should.be.false;
+    methods.alphabetic('! Terry').should.be.false;
+    methods.alphabetic('Terry@').should.be.false;
+  });
 });
