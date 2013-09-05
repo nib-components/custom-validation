@@ -58,4 +58,12 @@ describe('Custom Validation Methods', function(){
     methods.splitNumber('(*>_61 555-+=555 555\}{}~').should.be.equal('61555555555');
     methods.splitNumber('eggplant').should.be.equal("");
   });
+
+  it('should validate that an entry is alphabetic only', function(){
+    methods.alphabetic('Terry').should.be.true;
+    methods.alphabetic('1Terry').should.be.false;
+    methods.alphabetic('!Terry').should.be.false;
+    methods.alphabetic('! Terry').should.be.false;
+    methods.alphabetic('Terry@').should.be.false;
+  });
 });

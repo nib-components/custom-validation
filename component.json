@@ -7,7 +7,7 @@
   "dependencies": {
     "nib-components/validation-methods": "*",
     "component/type": "*",
-    "timrwood/moment": "develop"
+    "moment/moment": "2.1.0"
   },
   "development": {
     "chaijs/chai": "*"
