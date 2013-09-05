@@ -51,4 +51,11 @@ describe('Custom Validation Methods', function(){
     methods.intlPhone('+eggplant-61-555').should.be.false;
     methods.intlPhone('string').should.be.false;
   });
+
+  it('should remove digits from a string', function(){
+    methods.splitNumber('+61-555-555-555').should.equal('61555555555');
+    methods.splitNumber('61 555 555 555').should.be.equal('61555555555');
+    methods.splitNumber('(*>_61 555-+=555 555\}{}~').should.be.equal('61555555555');
+    methods.splitNumber('eggplant').should.be.equal("");
+  });
 });

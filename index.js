@@ -87,8 +87,34 @@ exports.alphabetic = function(val) {
   }
 };
 
+/**
+ * Check is string matches internation phone pattern
+ * @param  {String} val
+ * @return string
+ */
 exports.intlPhone = function(val) {
   if(val) {
     return type(val) === 'string' && patterns.intlPhone.test(val);
   }
 };
+
+/**
+ * Split a string and get any numbers
+ * @param  {String} val
+ * @return string
+ */
+exports.splitNumber = function(val){
+  if(val){
+    var split = /\d+/g;
+    var arr = val.match(split);
+    var str = "";
+
+    if (arr) {
+      for(var i=0; i<arr.length; i++){
+        str += arr[i];
+      }
+    }
+
+    return str;
+  }
+}
