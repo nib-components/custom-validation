@@ -14,7 +14,7 @@ var moment = require('moment');
 
 var patterns = {
   dateofbirth: /^\d{1,2}\/\d{1,2}\/\d{4}$/,
-  alphabetic: /^[a-zA-Z\-\']+$/,
+  alphabetic: /^[a-zA-Z\-\s\']+$/,
   intlPhone: /^[0-9\-\+ ]+$/
 };
 

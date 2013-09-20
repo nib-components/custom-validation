@@ -59,8 +59,11 @@ describe('Custom Validation Methods', function(){
     methods.splitNumber('eggplant').should.be.equal("");
   });
 
-  it('should validate that an entry is alphabetic only', function(){
+  it('should validate that an entry is alphabetic only (allowing spaces, apostophes and hyphens)', function(){
     methods.alphabetic('Terry').should.be.true;
+    methods.alphabetic('Terr-y').should.be.true;
+    methods.alphabetic("Ter'ry").should.be.true;
+    methods.alphabetic('Ter ry').should.be.true;
     methods.alphabetic('1Terry').should.be.false;
     methods.alphabetic('!Terry').should.be.false;
     methods.alphabetic('! Terry').should.be.false;
