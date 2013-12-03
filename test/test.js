@@ -69,4 +69,55 @@ describe('Custom Validation Methods', function(){
     methods.alphabetic('! Terry').should.be.false;
     methods.alphabetic('Terry@').should.be.false;
   });
+
+  /**
+   * http://en.wikipedia.org/wiki/Telephone_numbers_in_Australia#Geographic_numbers_2
+   */
+  it('should validate an Australian phone number', function(){
+
+    // Using the split method above
+    var val1 = "024999 6677 string";
+    var val2 = "uity( )+0400222345";
+    var val3 = "61 24st ring";
+    methods.australianPhoneNumber(methods.splitNumber(val1)).should.be.true;
+    methods.australianPhoneNumber(methods.splitNumber(val2)).should.be.true;
+    methods.australianPhoneNumber(methods.splitNumber(val3)).should.be.false;
+
+    // validate 49997878
+    methods.australianPhoneNumber('39996677').should.be.true;
+    methods.australianPhoneNumber('19996677').should.be.false;
+    methods.australianPhoneNumber('29996677').should.be.false;
+    methods.australianPhoneNumber('3999667').should.be.false;
+    methods.australianPhoneNumber('399966777').should.be.false;
+    methods.australianPhoneNumber('3w996677').should.be.false;
+
+    // validate 0249997878
+    methods.australianPhoneNumber('0249996677').should.be.true;
+    methods.australianPhoneNumber('024999667').should.be.false;
+    methods.australianPhoneNumber('02499966777').should.be.false;
+    methods.australianPhoneNumber('0219996677').should.be.false;
+    methods.australianPhoneNumber('0229996677').should.be.false;
+    methods.australianPhoneNumber('1219996677').should.be.false;
+    methods.australianPhoneNumber('4229996677').should.be.false;
+    methods.australianPhoneNumber('02w9996677').should.be.false;
+
+    // validate 61249997878
+    methods.australianPhoneNumber('61249996677').should.be.true;
+    methods.australianPhoneNumber('6124999667').should.be.false;
+    methods.australianPhoneNumber('612499966777').should.be.false;
+    methods.australianPhoneNumber('62249996677').should.be.false;
+    methods.australianPhoneNumber('71249996677').should.be.false;
+    methods.australianPhoneNumber('6124999w677').should.be.false;
+
+    // validate 0422999787
+    methods.australianPhoneNumber('0400222345').should.be.true;
+    methods.australianPhoneNumber('040022234').should.be.false;
+    methods.australianPhoneNumber('04002223444').should.be.false;
+    methods.australianPhoneNumber('1400222345').should.be.false;
+    methods.australianPhoneNumber('0400w22345').should.be.false;
+
+    chai.assert( methods.australianPhoneNumber('') === undefined);
+    chai.assert( methods.australianPhoneNumber(null) === undefined);
+    chai.assert( methods.australianPhoneNumber(undefined) === undefined);
+  });
 });

@@ -2,7 +2,7 @@
   "name": "custom-validation",
   "repo": "nib-components/custom-validation",
   "description": "Custom validation methods",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "keywords": [],
   "dependencies": {
     "nib-components/validation-methods": "*",

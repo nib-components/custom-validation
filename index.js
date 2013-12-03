@@ -15,7 +15,8 @@ var moment = require('moment');
 var patterns = {
   dateofbirth: /^\d{1,2}\/\d{1,2}\/\d{4}$/,
   alphabetic: /^[a-zA-Z\-\s\']+$/,
-  intlPhone: /^[0-9\-\+ ]+$/
+  intlPhone: /^[0-9\-\+ ]+$/,
+  australianPhoneNumber: /^(0[2|3|7|8]{1}[3-9]{1}[0-9]{7}$)|(^[3|4|5|6|7|8|9]{1}[0-9]{7}$)|(^61[2|3|7|8]{1}[0-9]{8}$)|(^04[0-9]{8}$)/
 };
 
 /**
@@ -114,7 +115,17 @@ exports.splitNumber = function(val){
         str += arr[i];
       }
     }
-
     return str;
   }
 }
+
+/**
+ * Check if a string is an valid Australian phone number
+ * @param  {String}  val
+ * @return {Boolean}
+ */
+exports.australianPhoneNumber = function(val) {
+  if(val) {
+    return type(val) === 'string' && patterns.australianPhoneNumber.test(val);
+  }
+};
