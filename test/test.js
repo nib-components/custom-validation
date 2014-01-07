@@ -7,9 +7,9 @@ describe('Custom Validation Methods', function(){
     methods.username('foo@foo.com').should.be.true;
     methods.username('fooatfoo.com').should.be.false;
     methods.username('12345678').should.be.true;
-    chai.assert( methods.username('') === undefined);
-    chai.assert( methods.username(null) === undefined);
-    chai.assert( methods.username(undefined) === undefined);
+    chai.assert.isUndefined(methods.username(''));
+    chai.assert.isUndefined(methods.username(null));
+    chai.assert.isUndefined(methods.username(undefined));
   });
 
   it('should validate a date of birth', function(){
@@ -22,9 +22,9 @@ describe('Custom Validation Methods', function(){
     methods.dateofbirth('01/31/1980').should.be.false;
     methods.dateofbirth('01/10/80').should.be.false;
     methods.dateofbirth('01/march/1980').should.be.false;
-    chai.assert( methods.dateofbirth('') === undefined);
-    chai.assert( methods.dateofbirth(null) === undefined);
-    chai.assert( methods.dateofbirth(undefined) === undefined);
+    chai.assert.isUndefined(methods.dateofbirth(''));
+    chai.assert.isUndefined(methods.dateofbirth(null));
+    chai.assert.isUndefined(methods.dateofbirth(undefined));
   });
 
   it('should validate that a person is over a particular age', function(){
@@ -101,7 +101,7 @@ describe('Custom Validation Methods', function(){
     methods.australianPhoneNumber('4229996677').should.be.false;
     methods.australianPhoneNumber('02w9996677').should.be.false;
 
-    // validate 61249997878
+    // validate 61249997878 (landline with Country Code)
     methods.australianPhoneNumber('61249996677').should.be.true;
     methods.australianPhoneNumber('6124999667').should.be.false;
     methods.australianPhoneNumber('612499966777').should.be.false;
@@ -116,8 +116,14 @@ describe('Custom Validation Methods', function(){
     methods.australianPhoneNumber('1400222345').should.be.false;
     methods.australianPhoneNumber('0400w22345').should.be.false;
 
-    chai.assert( methods.australianPhoneNumber('') === undefined);
-    chai.assert( methods.australianPhoneNumber(null) === undefined);
-    chai.assert( methods.australianPhoneNumber(undefined) === undefined);
+    // validate 61422999787 (mobile with Country Code)
+    methods.australianPhoneNumber('61422999787').should.be.true;
+    methods.australianPhoneNumber('6140022234').should.be.false;
+    methods.australianPhoneNumber('614002223444').should.be.false;
+    methods.australianPhoneNumber('61400w22345').should.be.false;
+
+    chai.assert.isUndefined(methods.australianPhoneNumber(''));
+    chai.assert.isUndefined(methods.australianPhoneNumber(null));
+    chai.assert.isUndefined(methods.australianPhoneNumber(undefined));
   });
 });
