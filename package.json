@@ -1,0 +1,21 @@
+{
+  "name": "@nib-components/custom-validation",
+  "version": "0.0.5",
+  "description": "Custom validation methods",
+  "keywords": [],
+  "license": "MIT",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:nib-components/custom-validation.git"
+  },
+  "dependencies": {
+    "@nib/validation-methods": "*",
+    "component-type": "*",
+    "moment": "2.1.0"
+  },
+  "browser": {
+    "validation-methods": "@nib/validation-methods",
+    "type": "component-type"
+  }
+}
